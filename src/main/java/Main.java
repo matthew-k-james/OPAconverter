@@ -10,8 +10,6 @@ import java.util.*;
 
 public class Main {
 
-    private static String inDate;
-
     public Main() throws Exception {
     }
 
@@ -30,9 +28,11 @@ public class Main {
 
     String MeansXLFile = "/Users/matthewjames/Downloads/300000614949MeansTDSData.xlsx";
 
+    String MeansDataModel = "/Users/matthewjames/Downloads/Means 18A Data Model.xlsx";
+
 // Set path of output file
 
-    String MeansXDSFile = "/Users/matthewjames/Downloads/file.xds";
+    String MeansXDSFile = "/Users/matthewjames/Downloads/MeansXDSFile.xds";
 
     public static String[][] readExcel(String XLFile) throws Exception {
         XSSFRow row;
@@ -99,8 +99,6 @@ public class Main {
                                 }
 //                                System.out.print(value[r][c]);
 
-                            } else {
-//                                System.out.print("[null]\t");
                             }
                         } // for(c)
 //                        System.out.print("\n");
@@ -112,10 +110,32 @@ public class Main {
         }
         return value;
     }
-//
+
+/*    {
+        for (int z=0; z < 10; z++) {
+            System.out.println(readExcel(MeansDataModel)[z][1] + " " + readExcel(MeansDataModel)[z][2] + " " +
+                    readExcel(MeansDataModel)[z][3] + " " + readExcel(MeansDataModel)[z][4] + " " + readExcel(MeansDataModel)[z][5]);
+        }
+    }*/
+// Call readExcel file method for source file
+
+    String[][] meansData = readExcel(MeansXLFile);
+    String[][] dataModel = readExcel(MeansDataModel);
+
+    public static HashMap<String, String> readMeansDataModel(String[][] dataModel) throws Exception {
+        HashMap<String, String> modelMap = new HashMap<>();
+        for (int l=1; l < dataModel.length; l++) {
+            modelMap.put(dataModel[l][4], dataModel[l][2]);
+        }
+//        modelMap.entrySet().forEach(entry->{
+//            System.out.println(entry.getKey() + " " + entry.getValue());
+//        });
+        return modelMap;
+    }
+    //
 //identify subentities in data model
-    static ArrayList<String> SubEntityName () {
-        ArrayList<String> subEntityName = new ArrayList<String>();
+    private static ArrayList<String> subEntityName() {
+        ArrayList<String> subEntityName = new ArrayList<>();
         subEntityName.add("ADDTHIRD");
         subEntityName.add("BPFAMILYEMPL");
         subEntityName.add("BPPROPERTY");
@@ -136,62 +156,79 @@ public class Main {
         return subEntityName;
     }
 
-    {
-//        System.out.println(SubEntityName());
 
-// Call readExcel file method
-
-        String[][] meansData = readExcel(MeansXLFile);
 
 // Get number of rows and columns
-        int meansFileLength = meansData.length;
-        int meansFileCol = meansData[0].length;
+    public int getNumRows(String[][] meansData){
+        return meansData.length;
+    }
 
-//        System.out.println("means file length " + meansFileLength + "cols " + meansFileCol);
-//        System.out.println("data in row 1 col 1" + meansData[1][8]);
+    public int getNumCols(String[][] meansData){
+        return meansData[0].length;
+    }
 
 
+    private int getNumSubEnts(String[][] meansData) {
 // Count number of lines of sub-entities in array
         int cnt = 0;
-        for (int d = 0; d < meansFileLength; d++) {
-            if (SubEntityName().contains(meansData[d][2])) {
+        for (int d = 0; d < getNumRows(meansData); d++) {
+            if (subEntityName().contains(meansData[d][2])) {
                 cnt++;
             }
         }
-//        System.out.println("count is " + cnt);
+        return cnt;
+    }
 
 // Create 2D array to hold sub-entities
-        String[][] subEntities = new String[cnt][meansFileCol];
-        if (cnt > 0) {
+    private String[][] getSubEntities(String[][] meansData){
+        int count = getNumSubEnts(meansData);
+        String[][] subEntities = new String[count][getNumCols(meansData)];
+        if (count > 0) {
             int g = 0;
-            for (int e = 0; e < meansFileLength && g < cnt; e++) {
-                if (SubEntityName().contains(meansData[e][2])) {
+            for (int e = 0; e < getNumRows(meansData) && g < count; e++) {
+                if (subEntityName().contains(meansData[e][2])) {
                     subEntities[g] = meansData[e];
                     g++;
                 }
             }
 //            System.out.println(Arrays.deepToString(subEntities).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
         }
+        return subEntities;
+    }
 
+
+/*    {
+        int xx = 0;
+        for (xx=0; xx < getNumSubEnts(meansData); xx++) {
+            System.out.println(getSubEntities(meansData)[xx][2]);
+        }
+    }
+*/
 // Create HashMap to hold relationship
+    public HashMap<String, List<String>> subEntRel() {
         HashMap<String, List<String>> subEntityRel = new HashMap<>();
-        subEntityRel.put("ADDPROPERTY", Arrays.asList(new String[]{"ADDTHIRD"}));
-        subEntityRel.put("BANKACC", Arrays.asList(new String[]{"BPFAMILYEMPL"}));
-        subEntityRel.put("BUSINESSPART", Arrays.asList(new String[]{"BPPROPERTY", "BUSPARTBANK"}));
-        subEntityRel.put("COMPANY", Arrays.asList(new String[]{"COPROPERTY", "SHARE"}));
-        subEntityRel.put("EMPLOYMENT_CLIENT", Arrays.asList(new String[]{"EMP_CLI_KNOWN_CHANGE", "EMPLOY_BEN_CLIENT",
-                "CLI_NON_HM_L17", "CLI_NON_HM_WAGE_SLIP"}));
-        subEntityRel.put("EMPLOYMENT_PARTNER", Arrays.asList(new String[]{"EMPLOY_BEN_PARTNER", "PAR_NON_HM_L17",
-                "PAR_NON_HM_WAGE_SLIP", "PAR_EMPLOY_KNOWN_CHANGE"}));
-        subEntityRel.put("SELFEMPLOY", Arrays.asList(new String[]{"SEFAMILYEMPL", "SELFEMPBANK", "SEPROPERTY"}));
+        subEntityRel.put("ADDPROPERTY", Arrays.asList("ADDTHIRD"));
+        subEntityRel.put("BANKACC", Arrays.asList("BPFAMILYEMPL"));
+        subEntityRel.put("BUSINESSPART", Arrays.asList("BPPROPERTY", "BUSPARTBANK"));
+        subEntityRel.put("COMPANY", Arrays.asList("COPROPERTY", "SHARE"));
+        subEntityRel.put("EMPLOYMENT_CLIENT", Arrays.asList("EMP_CLI_KNOWN_CHANGE", "EMPLOY_BEN_CLIENT",
+                "CLI_NON_HM_L17", "CLI_NON_HM_WAGE_SLIP"));
+        subEntityRel.put("EMPLOYMENT_PARTNER", Arrays.asList("EMPLOY_BEN_PARTNER", "PAR_NON_HM_L17",
+                "PAR_NON_HM_WAGE_SLIP", "PAR_EMPLOY_KNOWN_CHANGE"));
+        subEntityRel.put("SELFEMPLOY", Arrays.asList("SEFAMILYEMPL", "SELFEMPBANK", "SEPROPERTY"));
+        return subEntityRel;
+    }
+//
+//{
+//    System.out.println(subEntRel());
+//}
 
-//        System.out.println(subEntityRel);
-
-        String ref = "";
+//        String ref = "";
 
 // Get all entity names in a list
+    private List<String> getEntityList(String[][] meansData) {
         List<String> listStrings = new ArrayList<String>();
-        for (int c = 0; c < meansFileLength-1; c++) {
+        for (int c = 0; c < getNumRows(meansData) - 1; c++) {
             if (!meansData[c][2].equals(meansData[c + 1][2]) && !meansData[c][2].equals("ENTITY_TYPE")) {
 //                System.out.println(meansData[c][2]);
                 listStrings.add(meansData[c][2]);
@@ -203,67 +240,49 @@ public class Main {
                 listStrings.set(b, replaceLetters);
             }
         }
-//        System.out.println("listStrings is " + listStrings);
+        return listStrings;
+    }
 
+//{
+//    System.out.println(getEntityList(meansData));
+//}
 // Write out converted file
-        try {
+    {
+//    public void writeXDSFile(String[][] meansData) throws FileNotFoundException, UnsupportedEncodingException {
             PrintWriter writer = new PrintWriter(MeansXDSFile, "UTF-8");
+            String ref = "";
+
             writer.println("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");   // write header
             writer.println("<session-data xmlns=\"http://oracle.com/determinations/engine/sessiondata/10.2\">"); // write xmlns data
             writer.println("<entity id =" + "\"" + "global" + "\"" + ">"); // write global entity id
 
             // find case reference for global instance identifier
-            for (int a = 0; a < meansFileLength - 1; a++) {
+            for (int a = 0; a < getNumRows(meansData) - 1; a++) {
                 if (meansData[a][2].equals("global")) {
                     ref = meansData[a][5];
-                    //                System.out.println(ref);
+                    System.out.println(ref);
                     break;
                 }
             }
 
             writer.println("<instance id=" + "\"" + ref + "\"" + ">"); // write global instance id
             // write global records
-            for (int b = 1; b < meansFileLength-1; b++) {
+            for (int b = 1; b < getNumRows(meansData) - 1; b++) {
 //write out global records first i.e. lowest level
                 String entityName = meansData[b][2];
                 String entPrevLn = meansData[b - 1][2];
                 String inst = meansData[b][3];
                 String instPrevLn = meansData[b - 1][3];
                 String attrName = meansData[b][4];
-                String attrVal = meansData[b][5];
                 String instNextLn = meansData[b + 1][3];
                 String entNextLn = meansData[b + 1][2];
-//                System.out.println(entityName + entPrevLn + inst + instPrevLn + instNextLn + attrName + attrVal);
                 if (entityName.equals("global")) {
                     writer.println("<attribute id=" + "\"" + attrName + "\"" + ">");
-                    writer.println(xdsDataStructure(meansData, b));
-/*                    if ((attrVal.equals("0") || attrVal.contains("BLANK")) && attrName.contains("_T_")) {
-                        writer.println("<text-val/>");
-                    } else if (attrVal.contains("~ ~") ||
-                            ((attrName.contains("_D_") || attrName.contains("DATE")) && attrVal.contains("BLANK"))) {
-                        writer.println("<uncertain-val/>");
-                    } else if ((attrVal.equals("0") || attrVal.contains("BLANK")) && attrName.contains("_T_")) {
-                        writer.println("<text-val/>");
-                    } else if (attrName.contains("_T_") || attrName.equals("GB_INPUT_B_13WP3_49A") ||
-                            attrName.equals("APPLICATION_CASE_REF") || attrName.equals("COST_LIMIT_CHANGED_FLAG")) {
-                        writer.println("<text-val>" + attrVal + "</text-val>");
-                    } else if (attrName.contains("_B_") || attrVal.equals("true") || attrVal.equals("false")) {
-                        writer.println("<boolean-val>" + attrVal + "</boolean-val>");
-                    } else if (attrName.contains("_D_") || attrName.contains("DATE")) {
-                        writer.println("<date-val>" + yrFirstDate(attrVal) + "</date-val>");
-                    } else if (attrName.contains("_N_")) {
-                        writer.println("<number-val>" + attrVal + "</number-val>");
-                    } else if (attrName.contains("_C_") || StringUtils.isNumeric(attrVal) || attrVal.contains("0.00")) {
-                        writer.println("<currency-val>" + attrVal + "</currency-val>");
-                    } else if (attrVal.contains("BLANK")) {
-                        writer.println("<text-val/>");
-                    } else {
-                        writer.println("<text-val>" + attrVal + "</text-val>");
-                    }
-*/                    writer.println("</attribute>");
+                    writer.println(xdsDataStructure(dataModel, meansData, b));
+                    writer.println("</attribute>");
                 }
 // write out entity level records
-                if (listStrings.contains(entityName) && !SubEntityName().contains(entityName)) {
+                if (getEntityList(meansData).contains(entityName) && !subEntityName().contains(entityName)) {
                     if (!entPrevLn.equals(entityName)) {
                         writer.println("<entity id=" + "\"" + entityName + "\"" + ">");
                     }
@@ -271,69 +290,26 @@ public class Main {
                         writer.println("<instance id=" + "\"" + inst + "\"" + ">");
                     }
                     writer.println("<attribute id=" + "\"" + attrName + "\"" + ">");
-                    writer.println(xdsDataStructure(meansData, b));
-/*                    if (attrVal.equals("~ ~") ||
-                            ((attrName.contains("_D_") || attrName.contains("DATE") || attrName.contains("DOB"))
-                                    && attrVal.contains("BLANK"))) {
-                        writer.println("<uncertain-val/>");
-                    } else if ((attrVal.equals("0") || attrVal.contains("BLANK")) && attrName.contains("_T_")) {
-                        writer.println("<text-val/>");
-                    } else if (attrName.contains("_T_") || attrName.equals("BANKACC_INPUT_N_7WP2_5A")) {
-                        writer.println("<text-val>" + attrVal + "</text-val>");
-                    } else if (entityName.equals("PROCEEDING") && attrName.contains("LEVEL_OF_SERVICE")) {
-                        writer.println("<text-val>" + attrVal + "</text-val>");
-                    } else if (attrName.contains("_B_") || attrVal.equals("true") || attrVal.equals("false")) {
-                        writer.println("<boolean-val>" + attrVal + "</boolean-val>");
-                    } else if (attrName.contains("_D_") || attrName.contains("DATE")) {
-                        writer.println("<date-val>" + yrFirstDate(attrVal) + "</date-val>");
-                    } else if (attrName.contains("_N_")) {
-                        writer.println("<number-val>" + attrVal + "</number-val>");
-                    } else if (attrName.contains("_C_") || StringUtils.isNumeric(attrVal) ||
-                            attrVal.contains("0.00")) {
-                        writer.println("<currency-val>" + attrVal + "</currency-val>");
-                    } else if (attrVal.contains("BLANK")) {
-                        writer.println("<text-val/>");
-                    } else {
-                        writer.println("<text-val>" + attrVal + "</text-val>");
-                    }*/
+                    writer.println(xdsDataStructure(dataModel, meansData, b));
                     writer.println("</attribute>");
-    // add any sub-entities using subEntities array
-                    if ((cnt > 0 && subEntityRel.containsKey(entityName) && !inst.equals(instNextLn))) {
-                        for (int h = 0; h < subEntities.length; h++) {
-                            if (subEntityRel.get(entityName).contains(subEntities[h][2])) {
-                                if (h == 0 || !subEntities[h - 1][2].equals(subEntities[h][2])) {
-                                    writer.println("<entity id=" + "\"" + subEntities[h][2] + "\"" + ">");
+// add any sub-entities using subEntities array
+                    int count = getNumSubEnts(meansData);
+                    if ((count > 0 && subEntRel().containsKey(entityName) && !inst.equals(instNextLn))) {
+                        for (int h = 0; h < getSubEntities(meansData).length; h++) {
+                            if (subEntRel().get(entityName).contains(getSubEntities(meansData)[h][2])) {
+                                if (h == 0 || !getSubEntities(meansData)[h - 1][2].equals(getSubEntities(meansData)[h][2])) {
+                                    writer.println("<entity id=" + "\"" + getSubEntities(meansData)[h][2] + "\"" + ">");
                                 }
-                                if (h == 0 || !subEntities[h][3].equals(subEntities[h - 1][3])) {
-                                    writer.println("<instance id=" + "\"" + subEntities[h][3] + "\"" + ">");
+                                if (h == 0 || !getSubEntities(meansData)[h][3].equals(getSubEntities(meansData)[h - 1][3])) {
+                                    writer.println("<instance id=" + "\"" + getSubEntities(meansData)[h][3] + "\"" + ">");
                                 }
-                                writer.println("<attribute id=" + "\"" + subEntities[h][4] + "\"" + ">");
-                                writer.println(xdsDataStructure(subEntities, h));
-/*                                if (subEntities[h][5].equals("~ ~") ||
-                                        ((subEntities[h][4].contains("_D_") || subEntities[h][4].contains("DATE")) && subEntities[h][5].contains("BLANK"))) {
-                                    writer.println("<uncertain-val/>");
-                                } else if ((subEntities[h][5].equals("0") || subEntities[h][5].contains("BLANK")) && subEntities[h][4].contains("_T_")) {
-                                    writer.println("<text-val/>");
-                                } else if (subEntities[h][4].contains("_T_")) {
-                                    writer.println("<text-val>" + subEntities[h][5] + "</text-val>");
-                                } else if (subEntities[h][4].contains("_B_") || subEntities[h][5].equals("true") || subEntities[h][5].equals("false")) {
-                                    writer.println("<boolean-val>" + subEntities[h][5] + "</boolean-val>");
-                                } else if (subEntities[h][4].contains("_D_") || subEntities[h][4].contains("DATE")) {
-                                    writer.println("<date-val>" + yrFirstDate(subEntities[h][5]) + "</date-val>");
-                                } else if (subEntities[h][4].contains("_N_")) {
-                                    writer.println("<number-val>" + subEntities[h][5] + "</number-val>");
-                                } else if (subEntities[h][4].contains("_C_") || StringUtils.isNumeric(subEntities[h][5]) || subEntities[h][5].contains("0.00")) {
-                                    writer.println("<currency-val>" + subEntities[h][5] + "</currency-val>");
-                                } else if (subEntities[h][5].contains("BLANK")) {
-                                    writer.println("<text-val/>");
-                                } else {
-                                    writer.println("<text-val>" + subEntities[h][5] + "</text-val>");
-                                } */
+                                writer.println("<attribute id=" + "\"" + getSubEntities(meansData)[h][4] + "\"" + ">");
+                                writer.println(xdsDataStructure(getSubEntities(meansData), h));
                                 writer.println("</attribute>");
-                                if (cnt == 1 || (!subEntities[h][3].equals(subEntities[h + 1][3]))) {
+                                if (count == 1 || (!getSubEntities(meansData)[h][3].equals(getSubEntities(meansData)[h + 1][3]))) {
                                     writer.println("</instance>");
                                 }
-                                if (cnt == 1 || !subEntities[h + 1][2].equals(entityName)) {
+                                if (count == 1 || !getSubEntities(meansData)[h + 1][2].equals(entityName)) {
                                     writer.println("</entity>");
                                 }
                             }
@@ -351,14 +327,11 @@ public class Main {
             writer.println("</entity>");
             writer.println("</session-data>");
             writer.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
         }
-    }
 
-// Method to output date in YYYY-MM-DD format where input date is MM-YY-YYYY
+
+
+    // Method to output date in YYYY-MM-DD format where input date is MM-YY-YYYY
 //
     public static String yrFirstDate(String inDate) {
         String outYear = "";
@@ -375,7 +348,7 @@ public class Main {
         return "";
     }
 
-    public static String xdsDataStructure(String [][] meansData, int b) {
+    public static String xdsDataStructure(String[][] meansData, int b) {
         String attrName = meansData[b][4];
         String attrVal = meansData[b][5];
         if ((attrVal.equals("0") || attrVal.contains("BLANK")) && attrName.contains("_T_")) {
@@ -383,8 +356,6 @@ public class Main {
         } else if (attrVal.contains("~ ~") ||
                 ((attrName.contains("_D_") || attrName.contains("DATE")) && attrVal.contains("BLANK"))) {
             return ("<uncertain-val/>");
-        } else if ((attrVal.equals("0") || attrVal.contains("BLANK")) && attrName.contains("_T_")) {
-            return ("<text-val/>");
         } else if (attrName.contains("_T_") || attrName.equals("GB_INPUT_B_13WP3_49A") ||
                 attrName.equals("APPLICATION_CASE_REF") || attrName.equals("COST_LIMIT_CHANGED_FLAG")) {
             return ("<text-val>" + attrVal + "</text-val>");
@@ -393,7 +364,7 @@ public class Main {
         } else if (attrName.contains("_D_") || attrName.contains("DATE")) {
             return ("<date-val>" + yrFirstDate(attrVal) + "</date-val>");
         } else if (attrName.contains("_N_")) {
-            return("<number-val>" + attrVal + "</number-val>");
+            return ("<number-val>" + attrVal + "</number-val>");
         } else if (attrName.contains("_C_") || StringUtils.isNumeric(attrVal) || attrVal.contains("0.00")) {
             return ("<currency-val>" + attrVal + "</currency-val>");
         } else if (attrVal.contains("BLANK")) {
@@ -402,6 +373,38 @@ public class Main {
             return ("<text-val>" + attrVal + "</text-val>");
         }
 //        return("</attribute>");
+    }
+
+    public static String xdsDataStructure(String[][] dataModel, String[][] meansData, int b) throws Exception {
+        String attrName = meansData[b][4];
+//        System.out.print("attribute name is " + attrName + " for line " + b);
+        String attrVal = meansData[b][5];
+//        System.out.println(" value is " + attrVal);
+        String attrDataType = readMeansDataModel(dataModel).get(attrName);
+        if (attrDataType == null) {
+            System.out.println("ERROR - attribute " + attrName + " has no entry in the Data Model!!!");
+            return ("ERROR!! Null value!!");
+        }
+        if ((attrVal.equals("0") || attrVal.contains("BLANK")) && attrDataType.contains("Text")) {
+            return ("<text-val/>");
+        } else if (attrVal.contains("~ ~") ||
+                (attrDataType.contains("Date") && attrVal.contains("BLANK"))) {
+            return ("<uncertain-val/>");
+        } else if (attrDataType.contains("Text")) {
+            return ("<text-val>" + attrVal + "</text-val>");
+        } else if (attrDataType.contains("Boolean") || attrVal.equals("true") || attrVal.equals("false")) {
+            return ("<boolean-val>" + attrVal + "</boolean-val>");
+        } else if (attrDataType.contains("Date")) {
+            return ("<date-val>" + yrFirstDate(attrVal) + "</date-val>");
+        } else if (attrDataType.contains("Number")) {
+            return ("<number-val>" + attrVal + "</number-val>");
+        } else if (attrDataType.contains("Currency") || StringUtils.isNumeric(attrVal) || attrVal.contains("0.00")) {
+            return ("<currency-val>" + attrVal + "</currency-val>");
+        } else if (attrVal.contains("BLANK")) {
+            return ("<text-val/>");
+        } else {
+            return ("<text-val>" + attrVal + "</text-val>");
+        }
     }
 
 }
