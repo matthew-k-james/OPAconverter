@@ -1,11 +1,16 @@
 import org.apache.commons.lang3.StringUtils;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.*;
-import java.util.*;
+import java.io.FileInputStream;
+import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 
 
 public class Main {
@@ -32,7 +37,7 @@ public class Main {
 
 // Set path of output file
 
-    String MeansXDSFile = "/Users/matthewjames/Downloads/MeansXDSFile.xds";
+    String MeansXDSFile = "/Users/matthewjames/Downloads/MeansXDSFile2.xds";
 
     public static String[][] readExcel(String XLFile) throws Exception {
         XSSFRow row;
@@ -249,7 +254,7 @@ public class Main {
 // Write out converted file
     {
 //    public void writeXDSFile(String[][] meansData) throws FileNotFoundException, UnsupportedEncodingException {
-            PrintWriter writer = new PrintWriter(MeansXDSFile, "UTF-8");
+            PrintWriter writer = new PrintWriter(MeansXDSFile, StandardCharsets.UTF_8);
             String ref = "";
 
             writer.println("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");   // write header
