@@ -37,7 +37,7 @@ public class Main {
 
 // Set path of output file
 
-    String MeansXDSFile = "/Users/matthewjames/Downloads/MeansXDSFile2.xds";
+    String MeansXDSFile = "/Users/matthewjames/Downloads/MeansXDSFile3.xds";
 
     public static String[][] readExcel(String XLFile) throws Exception {
         XSSFRow row;
@@ -118,8 +118,8 @@ public class Main {
 
 /*    {
         for (int z=0; z < 10; z++) {
-            System.out.println(readExcel(MeansDataModel)[z][1] + " " + readExcel(MeansDataModel)[z][2] + " " +
-                    readExcel(MeansDataModel)[z][3] + " " + readExcel(MeansDataModel)[z][4] + " " + readExcel(MeansDataModel)[z][5]);
+            System.out.println(readExcel(MeansXLFile)[z][0] + " " + readExcel(MeansXLFile)[z][1] + " " + readExcel(MeansXLFile)[z][2] + " " +
+                    readExcel(MeansXLFile)[z][3] + " " + readExcel(MeansXLFile)[z][4] + " " + readExcel(MeansXLFile)[z][5]);
         }
     }*/
 // Call readExcel file method for source file
@@ -137,6 +137,7 @@ public class Main {
 //        });
         return modelMap;
     }
+
     //
 //identify subentities in data model
     private static ArrayList<String> subEntityName() {
@@ -265,7 +266,7 @@ public class Main {
             for (int a = 0; a < getNumRows(meansData) - 1; a++) {
                 if (meansData[a][2].equals("global")) {
                     ref = meansData[a][5];
-                    System.out.println(ref);
+//                    System.out.println(ref);
                     break;
                 }
             }
@@ -411,5 +412,14 @@ public class Main {
             return ("<text-val>" + attrVal + "</text-val>");
         }
     }
-
+/*    {
+        String[][] fileRow = {
+                {"null", "meansAssessment_PREPOP",  "BANKACC",  "the bank account1", "BANKACC_INPUT_B_7WP2_16A", "false"}
+        };
+        System.out.println(fileRow[0][0] + fileRow[0][1] + fileRow[0][2] + fileRow[0][3] + fileRow[0][4] + fileRow[0][5] );
+        String result = Main.xdsDataStructure(dataModel, fileRow, 0);
+        System.out.println(result);
+    }*/
 }
+
+

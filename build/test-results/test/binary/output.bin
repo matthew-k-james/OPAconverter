@@ -1,0 +1,7 @@
+Wresult is <text-val>Halifax</text-val> expected result is <text-val>Halifax</text-val>
+Uresult is <number-val>60</number-val> expected result is <number-val>60</number-val>
+5result is <text-val/> expected result is <text-val/>
+]result is <date-val>2018-11-01</date-val> expected result is <date-val>2018-11-01</date-val>
+_result is <boolean-val>false</boolean-val> expected result is <boolean-val>false</boolean-val>
+cresult is <currency-val>30.00</currency-val> expected result is <currency-val>30.00</currency-val>
+?result is <uncertain-val/> expected result is <uncertain-val/>

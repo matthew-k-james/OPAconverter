@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="MainTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2020-06-12T09:40:25" hostname="L0543" time="21.186">
+  <properties/>
+  <testcase name="checkTextAttrTypeIsOutput()" classname="MainTest" time="5.201"/>
+  <testcase name="checkNumberAttrTypeIsOutput()" classname="MainTest" time="3.142"/>
+  <testcase name="checkEscapedTextAttrTypeIsOutput()" classname="MainTest" time="2.687"/>
+  <testcase name="checkDateAttrTypeIsOutput()" classname="MainTest" time="2.74"/>
+  <testcase name="checkBooleanAttrTypeIsOutput()" classname="MainTest" time="2.426"/>
+  <testcase name="checkCurrencyAttrTypeIsOutput()" classname="MainTest" time="2.503"/>
+  <testcase name="checkUncertainAttrTypeIsOutput()" classname="MainTest" time="2.485"/>
+  <system-out><![CDATA[result is <text-val>Halifax</text-val> expected result is <text-val>Halifax</text-val>
+result is <number-val>60</number-val> expected result is <number-val>60</number-val>
+result is <text-val/> expected result is <text-val/>
+result is <date-val>2018-11-01</date-val> expected result is <date-val>2018-11-01</date-val>
+result is <boolean-val>false</boolean-val> expected result is <boolean-val>false</boolean-val>
+result is <currency-val>30.00</currency-val> expected result is <currency-val>30.00</currency-val>
+result is <uncertain-val/> expected result is <uncertain-val/>
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

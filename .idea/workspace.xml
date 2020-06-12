@@ -8,13 +8,16 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Main$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MainTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +49,32 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="OPAconverter" type="f1a62948:ProjectNode" />
                 <item name="Source Sets" type="e897c970:GradleViewContributor$SourceSetsNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="OPAconverter" type="f1a62948:ProjectNode" />
+                <item name="Source Sets" type="e897c970:GradleViewContributor$SourceSetsNode" />
+                <item name="main" type="396b929e:GradleViewContributor$SourceSetNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="OPAconverter" type="f1a62948:ProjectNode" />
+                <item name="Source Sets" type="e897c970:GradleViewContributor$SourceSetsNode" />
+                <item name="main" type="396b929e:GradleViewContributor$SourceSetNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="OPAconverter" type="f1a62948:ProjectNode" />
+                <item name="Source Sets" type="e897c970:GradleViewContributor$SourceSetsNode" />
+                <item name="test" type="396b929e:GradleViewContributor$SourceSetNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="OPAconverter" type="f1a62948:ProjectNode" />
+                <item name="Source Sets" type="e897c970:GradleViewContributor$SourceSetsNode" />
+                <item name="test" type="396b929e:GradleViewContributor$SourceSetNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -96,7 +125,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -109,22 +138,77 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="gradle build" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Gradle.MainTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="11" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="OPAconverter" />
+      <module name="OPAconverter.main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="poi-4.1.1.jar" type="JarApplication" temporary="true">
-      <option name="JAR_PATH" value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.poi/poi/4.1.1/c915f1a426213a8450fb473b5b3adb63f5ac1017/poi-4.1.1.jar!/" />
+    <configuration name="MainTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;MainTest&quot; --scan --stacktrace" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="OPAconverter [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" value="" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="poi-4.1.1.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.poi/poi/4.1.1/c915f1a426213a8450fb473b5b3adb63f5ac1017/poi-4.1.1.jar" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Gradle.OPAconverter [build]" />
+      <item itemvalue="JAR Application.poi-4.1.1.jar" />
+      <item itemvalue="Gradle.MainTest" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JAR Application.poi-4.1.1.jar" />
+        <item itemvalue="Gradle.MainTest" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Gradle.OPAconverter [build]" />
+        <item itemvalue="JAR Application.poi-4.1.1.jar" />
       </list>
     </recent_temporary>
   </component>
@@ -170,14 +254,20 @@
       <screen x="0" y="23" width="1680" height="967" />
     </state>
     <state x="355" y="178" key="#Project_Structure/0.23.1680.967@0.23.1680.967" timestamp="1591859974472" />
-    <state x="220" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591791371246">
-      <screen x="0" y="23" width="1680" height="964" />
+    <state x="220" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591885325469">
+      <screen x="0" y="23" width="1680" height="973" />
     </state>
+    <state x="220" y="164" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1591878504880" />
     <state x="220" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.964@0.23.1680.964" timestamp="1591791371246" />
-    <state x="493" y="304" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1591791311250">
-      <screen x="0" y="23" width="1680" height="964" />
+    <state x="220" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.972@0.23.1680.972" timestamp="1591871747778" />
+    <state x="220" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.973@0.23.1680.973" timestamp="1591885325469" />
+    <state x="493" y="307" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1591885323406">
+      <screen x="0" y="23" width="1680" height="973" />
     </state>
+    <state x="493" y="306" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1591878487266" />
     <state x="493" y="304" key="#com.intellij.ide.util.TreeClassChooserDialog/0.23.1680.964@0.23.1680.964" timestamp="1591791311250" />
+    <state x="493" y="306" key="#com.intellij.ide.util.TreeClassChooserDialog/0.23.1680.972@0.23.1680.972" timestamp="1591870745014" />
+    <state x="493" y="307" key="#com.intellij.ide.util.TreeClassChooserDialog/0.23.1680.973@0.23.1680.973" timestamp="1591885323406" />
     <state x="493" y="285" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1591793162616">
       <screen x="0" y="23" width="1680" height="964" />
     </state>
@@ -187,52 +277,65 @@
     </state>
     <state x="552" y="358" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1680.964@0.23.1680.964" timestamp="1591793290019" />
     <state x="552" y="359" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1680.967@0.23.1680.967" timestamp="1591799157345" />
-    <state width="1469" height="253" key="GridCell.Tab.0.bottom" timestamp="1591861842546">
-      <screen x="0" y="23" width="1680" height="962" />
+    <state x="510" y="283" key="EnvironmentVariablesDialog" timestamp="1591870759003">
+      <screen x="0" y="23" width="1680" height="972" />
     </state>
+    <state x="510" y="283" key="EnvironmentVariablesDialog/0.23.1680.972@0.23.1680.972" timestamp="1591870759003" />
+    <state width="818" height="253" key="GridCell.Tab.0.bottom" timestamp="1591954824860">
+      <screen x="0" y="23" width="1680" height="973" />
+    </state>
+    <state width="1680" height="294" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1591882094305" />
     <state width="1469" height="253" key="GridCell.Tab.0.bottom/0.23.1680.961@0.23.1680.961" timestamp="1589201234978" />
     <state width="1469" height="253" key="GridCell.Tab.0.bottom/0.23.1680.962@0.23.1680.962" timestamp="1591861842546" />
     <state width="1469" height="253" key="GridCell.Tab.0.bottom/0.23.1680.964@0.23.1680.964" timestamp="1591793290968" />
     <state width="1469" height="253" key="GridCell.Tab.0.bottom/0.23.1680.965@0.23.1680.965" timestamp="1591799506364" />
     <state width="1469" height="253" key="GridCell.Tab.0.bottom/0.23.1680.967@0.23.1680.967" timestamp="1591801721110" />
-    <state width="1469" height="253" key="GridCell.Tab.0.bottom/0.23.1680.971@0.23.1680.971" timestamp="1589533293818" />
+    <state width="1469" height="253" key="GridCell.Tab.0.bottom/0.23.1680.971@0.23.1680.971" timestamp="1591868751540" />
     <state width="1469" height="253" key="GridCell.Tab.0.bottom/0.23.1680.972@0.23.1680.972" timestamp="1585726395848" />
-    <state width="1469" height="253" key="GridCell.Tab.0.center" timestamp="1591861842545">
-      <screen x="0" y="23" width="1680" height="962" />
+    <state width="818" height="253" key="GridCell.Tab.0.bottom/0.23.1680.973@0.23.1680.973" timestamp="1591954824860" />
+    <state width="818" height="253" key="GridCell.Tab.0.center" timestamp="1591954824860">
+      <screen x="0" y="23" width="1680" height="973" />
     </state>
+    <state width="1680" height="294" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1591882094304" />
     <state width="1469" height="253" key="GridCell.Tab.0.center/0.23.1680.961@0.23.1680.961" timestamp="1589201234977" />
     <state width="1469" height="253" key="GridCell.Tab.0.center/0.23.1680.962@0.23.1680.962" timestamp="1591861842545" />
     <state width="1469" height="253" key="GridCell.Tab.0.center/0.23.1680.964@0.23.1680.964" timestamp="1591793290967" />
     <state width="1469" height="253" key="GridCell.Tab.0.center/0.23.1680.965@0.23.1680.965" timestamp="1591799506363" />
     <state width="1469" height="253" key="GridCell.Tab.0.center/0.23.1680.967@0.23.1680.967" timestamp="1591801721109" />
-    <state width="1469" height="253" key="GridCell.Tab.0.center/0.23.1680.971@0.23.1680.971" timestamp="1589533293817" />
+    <state width="1469" height="253" key="GridCell.Tab.0.center/0.23.1680.971@0.23.1680.971" timestamp="1591868751539" />
     <state width="1469" height="253" key="GridCell.Tab.0.center/0.23.1680.972@0.23.1680.972" timestamp="1585726395847" />
-    <state width="1469" height="253" key="GridCell.Tab.0.left" timestamp="1591861842545">
-      <screen x="0" y="23" width="1680" height="962" />
+    <state width="818" height="253" key="GridCell.Tab.0.center/0.23.1680.973@0.23.1680.973" timestamp="1591954824860" />
+    <state width="818" height="253" key="GridCell.Tab.0.left" timestamp="1591954824859">
+      <screen x="0" y="23" width="1680" height="973" />
     </state>
+    <state width="1680" height="294" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1591882094304" />
     <state width="1469" height="253" key="GridCell.Tab.0.left/0.23.1680.961@0.23.1680.961" timestamp="1589201234977" />
     <state width="1469" height="253" key="GridCell.Tab.0.left/0.23.1680.962@0.23.1680.962" timestamp="1591861842545" />
     <state width="1469" height="253" key="GridCell.Tab.0.left/0.23.1680.964@0.23.1680.964" timestamp="1591793290967" />
     <state width="1469" height="253" key="GridCell.Tab.0.left/0.23.1680.965@0.23.1680.965" timestamp="1591799506363" />
     <state width="1469" height="253" key="GridCell.Tab.0.left/0.23.1680.967@0.23.1680.967" timestamp="1591801721109" />
-    <state width="1469" height="253" key="GridCell.Tab.0.left/0.23.1680.971@0.23.1680.971" timestamp="1589533293816" />
+    <state width="1469" height="253" key="GridCell.Tab.0.left/0.23.1680.971@0.23.1680.971" timestamp="1591868751538" />
     <state width="1469" height="253" key="GridCell.Tab.0.left/0.23.1680.972@0.23.1680.972" timestamp="1585726395846" />
-    <state width="1469" height="253" key="GridCell.Tab.0.right" timestamp="1591861842546">
-      <screen x="0" y="23" width="1680" height="962" />
+    <state width="818" height="253" key="GridCell.Tab.0.left/0.23.1680.973@0.23.1680.973" timestamp="1591954824859" />
+    <state width="818" height="253" key="GridCell.Tab.0.right" timestamp="1591954824860">
+      <screen x="0" y="23" width="1680" height="973" />
     </state>
+    <state width="1680" height="294" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1591882094305" />
     <state width="1469" height="253" key="GridCell.Tab.0.right/0.23.1680.961@0.23.1680.961" timestamp="1589201234977" />
     <state width="1469" height="253" key="GridCell.Tab.0.right/0.23.1680.962@0.23.1680.962" timestamp="1591861842546" />
     <state width="1469" height="253" key="GridCell.Tab.0.right/0.23.1680.964@0.23.1680.964" timestamp="1591793290967" />
     <state width="1469" height="253" key="GridCell.Tab.0.right/0.23.1680.965@0.23.1680.965" timestamp="1591799506364" />
     <state width="1469" height="253" key="GridCell.Tab.0.right/0.23.1680.967@0.23.1680.967" timestamp="1591801721109" />
-    <state width="1469" height="253" key="GridCell.Tab.0.right/0.23.1680.971@0.23.1680.971" timestamp="1589533293817" />
+    <state width="1469" height="253" key="GridCell.Tab.0.right/0.23.1680.971@0.23.1680.971" timestamp="1591868751539" />
     <state width="1469" height="253" key="GridCell.Tab.0.right/0.23.1680.972@0.23.1680.972" timestamp="1585726395847" />
-    <state x="243" y="94" key="SettingsEditor" timestamp="1591864641768">
-      <screen x="0" y="23" width="1680" height="971" />
+    <state width="818" height="253" key="GridCell.Tab.0.right/0.23.1680.973@0.23.1680.973" timestamp="1591954824860" />
+    <state x="243" y="94" key="SettingsEditor" timestamp="1591951614475">
+      <screen x="0" y="23" width="1680" height="973" />
     </state>
     <state x="243" y="94" key="SettingsEditor/0.23.1680.964@0.23.1680.964" timestamp="1591793200561" />
     <state x="243" y="94" key="SettingsEditor/0.23.1680.965@0.23.1680.965" timestamp="1591799464342" />
-    <state x="243" y="94" key="SettingsEditor/0.23.1680.971@0.23.1680.971" timestamp="1591864641768" />
+    <state x="243" y="94" key="SettingsEditor/0.23.1680.971@0.23.1680.971" timestamp="1591867693963" />
+    <state x="243" y="94" key="SettingsEditor/0.23.1680.973@0.23.1680.973" timestamp="1591951614475" />
     <state x="496" y="331" key="com.intellij.ide.util.TipDialog" timestamp="1591863465283">
       <screen x="0" y="23" width="1680" height="971" />
     </state>
@@ -259,9 +362,14 @@
     </state>
     <state x="463" y="111" key="refactoring.ChangeSignatureDialog/0.23.1680.962@0.23.1680.962" timestamp="1583744627455" />
     <state x="463" y="112" key="refactoring.ChangeSignatureDialog/0.23.1680.971@0.23.1680.971" timestamp="1585923997737" />
-    <state x="505" y="230" width="670" height="675" key="search.everywhere.popup" timestamp="1588855569814">
-      <screen x="0" y="23" width="1680" height="967" />
+    <state x="505" y="248" width="670" height="675" key="run.anything.popup" timestamp="1591878259629">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state x="505" y="248" width="670" height="675" key="run.anything.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1591878259629" />
+    <state x="505" y="225" width="670" height="733" key="search.everywhere.popup" timestamp="1591881528920">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="505" y="225" width="670" height="733" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1591881528920" />
     <state x="505" y="229" width="670" height="672" key="search.everywhere.popup/0.23.1680.964@0.23.1680.964" timestamp="1583401170275" />
     <state x="505" y="230" width="670" height="675" key="search.everywhere.popup/0.23.1680.967@0.23.1680.967" timestamp="1588855569814" />
   </component>
